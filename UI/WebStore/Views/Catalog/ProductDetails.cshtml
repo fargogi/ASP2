@@ -1,0 +1,99 @@
+﻿
+@{
+	ViewData["Title"] = "Информация о продукте";
+}
+
+
+<div class="row">
+	<div class="col-sm-3">
+		@await Html.PartialAsync("Partial/_LeftSideBar")
+
+
+
+		<div class="price-range">
+			<!--price-range-->
+			<h2>Price Range</h2>
+			<div class="well">
+				<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+				<b>$ 0</b> <b class="pull-right">$ 600</b>
+			</div>
+		</div><!--/price-range-->
+
+		<div class="shipping text-center">
+			<!--shipping-->
+			<img src="~/images/home/shipping.jpg" alt="" />
+		</div><!--/shipping-->
+
+	</div>
+</div>
+
+<div class="col-sm-9 padding-right">
+	<div class="product-details">
+		<!--product-details-->
+		<div class="col-sm-5">
+			<div class="view-product">
+				<img src="~/images/product-details/1.jpg" alt="" />
+				<h3>ZOOM</h3>
+			</div>
+			<div id="similar-product" class="carousel slide" data-ride="carousel">
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<a href=""><img src="~/images/product-details/similar1.jpg" alt=""></a>
+						<a href=""><img src="~/images/product-details/similar2.jpg" alt=""></a>
+						<a href=""><img src="~/images/product-details/similar3.jpg" alt=""></a>
+					</div>
+					<div class="item">
+						<a href=""><img src="~/images/product-details/similar1.jpg" alt=""></a>
+						<a href=""><img src="~/images/product-details/similar2.jpg" alt=""></a>
+						<a href=""><img src="~/images/product-details/similar3.jpg" alt=""></a>
+					</div>
+					<div class="item">
+						<a href=""><img src="~/images/product-details/similar1.jpg" alt=""></a>
+						<a href=""><img src="~/images/product-details/similar2.jpg" alt=""></a>
+						<a href=""><img src="~/images/product-details/similar3.jpg" alt=""></a>
+					</div>
+
+				</div>
+
+				<!-- Controls -->
+				<a class="left item-control" href="#similar-product" data-slide="prev">
+					<i class="fa fa-angle-left"></i>
+				</a>
+				<a class="right item-control" href="#similar-product" data-slide="next">
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</div>
+
+		</div>
+		<div class="col-sm-7">
+			<div class="product-information">
+				<!--/product-information-->
+				<img src="~/images/product-details/new.jpg" class="newarrival" alt="" />
+				<h2>@Model.Name</h2>
+				<p>Артикул: 1089772</p>
+				<img src="~/images/product-details/rating.png" alt="" />
+				<span>
+					<span>@(Model.Price.ToString("C"))</span>
+					<label>Количество:</label>
+					<input type="text" value="3" />
+					<button type="button" class="btn btn-default cart">
+						<i class="fa fa-shopping-cart"></i>
+						Добавить в корзину
+					</button>
+				</span>
+				<p><b>Наличие:</b> В наличии</p>
+				<p><b>Состояние:</b> Новый</p>
+				<p><b>Бренд:</b> @Model.Brand</p>
+				<a href=""><img src="~/images/product-details/share.png" class="share img-responsive" alt="" /></a>
+			</div><!--/product-information-->
+		</div>
+	</div><!--/product-details-->
+
+	@await Html.PartialAsync("Partial/_CategoryTab")
+
+	@await Html.PartialAsync("Partial/_RecomendedItems")
+
+</div>
+		

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MyWebStore.Models.EmployeeViewModel>
+@{
+	ViewData["Title"] = "Список сотрудников";
+	var is_admin = User.IsInRole(MyWebStore.DomainEntities.Entities.User.AdminRole);
+}
+
+
+<div class="row">
+
+	<h3>@ViewData["Title"]</h3>
+
+	<hr />
+	@if (is_admin)
+	{
+	<a asp-action="Edit" class="btn btn-success">Создать</a>
+	}
+	<hr />
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Фамилия</th>
+				<th>Имя</th>
+				<th>Отчество</th>
+				<th>Возраст</th>
+				<th></th>
+
+				@if (is_admin)
+				{
+				<th></th>
+				<th></th>
+				}
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.ID</td>
+					<td>@item.SurName</td>
+					<td>@item.FirstName</td>
+					<td>@item.Patronymic</td>
+					<td>@item.Age</td>
+					<td><a asp-action="Details" asp-controller="Employees" asp-route-id="@item.ID">Детали</a></td>
+
+					@if (is_admin)
+					{
+					<td><a asp-action="Edit" asp-controller="Employees" asp-route-id="@item.ID">Редактировать</a></td>
+					<td><a asp-action="Delete" asp-controller="Employees" asp-route-id="@item.ID">Удалить</a></td>
+					}
+
+				</tr>
+			}
+		</tbody>
+
+	</table>
+	
+	
+
+</div>
+	

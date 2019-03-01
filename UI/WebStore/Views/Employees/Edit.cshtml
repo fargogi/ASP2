@@ -1,0 +1,43 @@
+﻿@model MyWebStore.Models.EmployeeViewModel
+@{
+	ViewData["Title"] = "Редактирование карточки сотрудника";
+}
+
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<div class="row">
+	<div class="col-md-4">
+		@using (Html.BeginForm(FormMethod.Post))
+		{
+			<div class="form-group">
+				@*Html.EditorForModel()*@
+				@Html.LabelFor(m => m.FirstName)
+				@Html.EditorFor(m => m.FirstName)
+				@Html.ValidationMessageFor(m => m.FirstName)
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.SurName)
+				@Html.EditorFor(m => m.SurName)
+				@Html.ValidationMessageFor(m => m.SurName)
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Patronymic)
+				@Html.EditorFor(m => m.Patronymic)
+				@Html.ValidationMessageFor(m => m.Patronymic)
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Age)
+				@Html.EditorFor(m => m.Age)
+				@Html.ValidationMessageFor(m => m.Age)
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Сохранить" class="btn btn-default" />
+			</div>
+		}
+	</div>
+</div>
+<hr />
+@Html.ActionLink("Назад", "Index", "Employees", null, new { @class = "btn btn-default" })
+
