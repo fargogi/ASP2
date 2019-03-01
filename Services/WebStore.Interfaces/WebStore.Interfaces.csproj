@@ -8,4 +8,8 @@
     <ProjectReference Include="..\..\Common\MyWebStore.DomainNew\MyWebStore.DomainNew.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

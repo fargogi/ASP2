@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyWebStore.DomainNew.ViewModels;
+using WebStore.Interfaces.Api;
 
 namespace MyWebStore.Controllers
 {
@@ -21,5 +22,8 @@ namespace MyWebStore.Controllers
         public IActionResult Blog() => View();
 
         public IActionResult ErrorPage404() => View();
+
+        public IActionResult ValuesServiceTest([FromServices]IValueService valueService) => View(valueService.Get());
+
     }
 }

@@ -9,6 +9,8 @@ using MyWebStore.DomainEntities.Entities;
 using WebStore.Services;
 using WebStore.Interfaces;
 using System;
+using WebStore.Interfaces.Api;
+using WebStore.Clients.Values;
 
 namespace MyWebStore
 {
@@ -35,6 +37,7 @@ namespace MyWebStore
             //Добавление сервисов для MVC
             services.AddMvc();
 
+            services.AddTransient<IValueService, ValuesClient>();
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData > ();
             //services.AddSingleton<IProductData, InMemoryProductData>();
             services.AddScoped<IProductData, SqlProductData>();
