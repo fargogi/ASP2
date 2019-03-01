@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MyWebStore.Infrastructure.Interfaces;
-using MyWebStore.Models;
+using WebStore.Interfaces;
+using MyWebStore.DomainNew.ViewModels;
 
-namespace MyWebStore.Infrastructure.Implementations
+namespace WebStore.Services
 {
-    class InMemoryEmployeesData : IEmployeesData
+   public class InMemoryEmployeesData : IEmployeesData
     {
 
         private readonly List<EmployeeViewModel> _employees = new List<EmployeeViewModel>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyWebStore.Infrastructure.Interfaces;
-using MyWebStore.Models;
+using WebStore.Interfaces;
+using MyWebStore.DomainNew.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

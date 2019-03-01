@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MyWebStore.Models;
+using MyWebStore.DomainNew.ViewModels;
 
-namespace MyWebStore.Infrastructure.Interfaces
+namespace WebStore.Interfaces
 {
     public interface IEmployeesData
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MyWebStore.DALNew.Context;
+using MyWebStore.DAL;
 using MyWebStore.Data;
 using MyWebStore.DomainEntities.Entities;
 using System;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace WebStore.Data
 {
-    internal static class DbInitializer
+    public static class DbInitializer
     {
         public static void Initialize(this MyWebStoreContext context)
         {

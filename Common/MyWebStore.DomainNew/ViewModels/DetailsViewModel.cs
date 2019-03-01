@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWebStore.Models
+namespace MyWebStore.DomainNew.ViewModels
 {
     public class DetailsViewModel
     {

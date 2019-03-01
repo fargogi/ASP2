@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyWebStore.DALNew.Context;
+using MyWebStore.DAL;
 using MyWebStore.DomainEntities.Entities;
-using MyWebStore.Infrastructure.Implementations;
-using MyWebStore.Infrastructure.Interfaces;
+using WebStore.Services;
+using WebStore.Interfaces;
 using System;
 
 namespace MyWebStore

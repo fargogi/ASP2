@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MyWebStore.Models;
+using MyWebStore.DomainNew.ViewModels;
 
 namespace MyWebStore.Controllers
 {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyWebStore.Models
+namespace MyWebStore.DomainNew.ViewModels
 {
-    public class BrandViewModel : INamedEntity, IOrderedEntity
+    public class SectionViewModel : INamedEntity, IOrderedEntity
     {
         public string Name { get; set; }
 
@@ -16,6 +16,7 @@ namespace MyWebStore.Models
 
         public int Order { get; set; }
 
-        public int ProductsCount { get; set; }
+        public List<SectionViewModel> ChildSection { get; set; } = new List<SectionViewModel>();
+        public SectionViewModel ParentSection { get; set; }
     }
 }

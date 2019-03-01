@@ -1,10 +1,10 @@
-﻿using MyWebStore.Models;
+﻿using MyWebStore.DomainNew.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWebStore.Infrastructure.Interfaces
+namespace WebStore.Interfaces
 {
    public interface ICartService
     {

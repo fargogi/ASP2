@@ -98,12 +98,16 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Views\Home\Partial\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\MyWebStore.DomainNew\MyWebStore.DomainNew.csproj" />
     <ProjectReference Include="..\..\Services\MyWebStore.DAL\MyWebStore.DAL.csproj" />
+    <ProjectReference Include="..\..\Services\WebStore.Clients\WebStore.Clients.csproj" />
+    <ProjectReference Include="..\..\Services\WebStore.Interfaces\WebStore.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Services\WebStore.Services\WebStore.Services.csproj" />
   </ItemGroup>
 
 </Project>

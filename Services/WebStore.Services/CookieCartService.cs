@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using MyWebStore.DomainEntities.Entities;
-using MyWebStore.Infrastructure.Interfaces;
-using MyWebStore.Models;
+using WebStore.Interfaces;
+using MyWebStore.DomainNew.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWebStore.Infrastructure.Implementations
+namespace WebStore.Services
 {
-    class CookieCartService : ICartService
+    public class CookieCartService : ICartService
     {
         private readonly IProductData _productData;
         private readonly IHttpContextAccessor _httpContextAccessor;

@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using MyWebStore.DALNew.Context;
+using MyWebStore.DAL;
 using MyWebStore.DomainEntities.Entities;
 using MyWebStore.DomainNew.Entities;
-using MyWebStore.Infrastructure.Interfaces;
-using MyWebStore.Models;
+using WebStore.Interfaces;
+using MyWebStore.DomainNew.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWebStore.Infrastructure.Implementations
+namespace WebStore.Services
 {
     public class SqlOrderService : IOrderService
     {

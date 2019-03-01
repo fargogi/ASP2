@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MyWebStore.DomainEntities.Entities;
 
-namespace MyWebStore.Infrastructure.Interfaces
+namespace WebStore.Interfaces
 {
     public interface IProductData
     {
