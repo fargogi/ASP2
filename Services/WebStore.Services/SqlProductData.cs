@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MyWebStore.DomainNew.DTO;
+using WebStore.Services.Map;
 
 namespace WebStore.Services
 {
@@ -21,32 +23,36 @@ namespace WebStore.Services
             return _db.Brands.AsEnumerable();
         }
 
-        public Product GetProductById(int id)
+        public ProductDTO GetProductById(int id)
         {
             return _db.Products
                  .Include(p => p.Brand)
                 .Include(p => p.Section)
-                .FirstOrDefault(p => p.Id == id);
+                .FirstOrDefault(p => p.Id == id).Map();
         }
 
-        public IEnumerable<Product> GetProducts(ProductFilter filter)
+        public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
         {
             if (filter is null)
                 return _db.Products
                         .Include(p => p.Brand)
                         .Include(p => p.Section)
-                        .AsEnumerable();
+                        .AsEnumerable()
+                        .Select(ProductDTO2Product.Map);
 
             IQueryable<Product> result = _db.Products
                  .Include(p => p.Brand)
                  .Include(p => p.Section);
 
             if (filter.BrandId != null)
-                return result.Where(p => p.BrandId == filter.BrandId);
+                return result.Where(p => 
+                p.BrandId == filter.BrandId)
+                    .Select(ProductDTO2Product.Map);
             if (filter.SectionId != null)
-                return result.Where(p => p.SectionId == filter.SectionId);
+                return result.Where(p => p.SectionId == filter.SectionId)
+                    .Select(ProductDTO2Product.Map);
 
-            return result.AsEnumerable();
+            return result.Select(ProductDTO2Product.Map).AsEnumerable();
         }
 
         public int GetProductsBrandCount(int brandId)

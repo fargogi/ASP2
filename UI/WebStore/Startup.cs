@@ -12,6 +12,7 @@ using System;
 using WebStore.Interfaces.Api;
 using WebStore.Clients.Values;
 using WebStore.Clients.Employees;
+using WebStore.Clients.Products;
 
 namespace MyWebStore
 {
@@ -42,7 +43,8 @@ namespace MyWebStore
             services.AddTransient<IEmployeesData, EmployeesClient>();
             //services.AddSingleton<IEmployeesData, InMemoryEmployeesData > ();
             //services.AddSingleton<IProductData, InMemoryProductData>();
-            services.AddScoped<IProductData, SqlProductData>();
+            //services.AddScoped<IProductData, SqlProductData>();
+            services.AddScoped<IProductData, ProductsClient>();
 
             services.AddScoped<ICartService, CookieCartService>();
 

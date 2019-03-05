@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MyWebStore.DomainEntities.Entities;
+using MyWebStore.DomainNew.DTO;
 
 namespace WebStore.Interfaces
 {
@@ -19,13 +20,13 @@ namespace WebStore.Interfaces
         /// <summary>Товары</summary>
         /// <param name="filter">Фильтрация товаров</param>
         /// <returns>Возвращает список товаров</returns>
-        IEnumerable<Product> GetProducts(ProductFilter filter = null);
+        IEnumerable<ProductDTO> GetProducts(ProductFilter filter = null);
 
         /// <summary>Метод возвращающий количество товаров определенного бренда</summary>
         /// <param name="brandId">Идентификатор бренда</param>
         /// <returns>Возвращает количество товаров</returns>
         int GetProductsBrandCount(int brandId);
 
-        Product GetProductById(int id);
+        ProductDTO GetProductById(int id);
     }
 }

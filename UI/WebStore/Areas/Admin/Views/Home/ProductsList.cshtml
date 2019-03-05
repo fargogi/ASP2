@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyWebStore.DomainEntities.Entities.Product>
+﻿@model IEnumerable<MyWebStore.DomainNew.DTO.ProductDTO>
 
 @{
 	ViewData["Title"] = "Список товаров";
@@ -14,8 +14,8 @@
 			<th>@Html.DisplayNameFor(m => m.Id)</th>
 			<th>@Html.DisplayNameFor(m => m.Name)</th>
 			<th>@Html.DisplayNameFor(m => m.Order)</th>
-			<th>@Html.DisplayNameFor(m => m.SectionId)</th>
-			<th>@Html.DisplayNameFor(m => m.BrandId)</th>
+			@*<th>@Html.DisplayNameFor(m => m.SectionId)</th>*@
+			<th>@Html.DisplayNameFor(m => m.Brand.Id)</th>
 			<th>@Html.DisplayNameFor(m => m.ImageUrl)</th>
 			<th>@Html.DisplayNameFor(m => m.Price)</th>
 			<th></th>
@@ -30,8 +30,8 @@
 				<td>@Html.DisplayFor(m => item.Id)</td>
 				<td>@Html.DisplayFor(m => item.Name)</td>
 				<td>@Html.DisplayFor(m => item.Order)</td>
-				<td>@Html.DisplayFor(m => item.SectionId)</td>
-				<td>@Html.DisplayFor(m => item.BrandId)</td>
+				@*<td>@Html.DisplayFor(m => item.SectionId)</td>*@
+				<td>@Html.DisplayFor(m => item.Brand.Id)</td>
 				<td><img src="~/images/shop/@item.ImageUrl"/></td>
 				<td>@Html.DisplayFor(m => item.Price)</td>
 				<td>@Html.ActionLink("Редактировать", "Edit", "Home", new { area = "Admin", id=item.Id})</td>
