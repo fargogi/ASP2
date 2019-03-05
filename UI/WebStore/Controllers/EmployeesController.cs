@@ -22,7 +22,7 @@ namespace MyWebStore.Controllers
 
         public IActionResult Index()
         {
-            return View(_employeesData.Get());
+            return View(_employeesData.GetAll());
         }
 
         public IActionResult Details(int? id)

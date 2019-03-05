@@ -11,6 +11,7 @@ using WebStore.Interfaces;
 using System;
 using WebStore.Interfaces.Api;
 using WebStore.Clients.Values;
+using WebStore.Clients.Employees;
 
 namespace MyWebStore
 {
@@ -38,7 +39,8 @@ namespace MyWebStore
             services.AddMvc();
 
             services.AddTransient<IValueService, ValuesClient>();
-            services.AddSingleton<IEmployeesData, InMemoryEmployeesData > ();
+            services.AddTransient<IEmployeesData, EmployeesClient>();
+            //services.AddSingleton<IEmployeesData, InMemoryEmployeesData > ();
             //services.AddSingleton<IProductData, InMemoryProductData>();
             services.AddScoped<IProductData, SqlProductData>();
 
@@ -50,7 +52,7 @@ namespace MyWebStore
                 .AddEntityFrameworkStores<MyWebStoreContext>()
                 .AddDefaultTokenProviders();
 
-            services.Configure<IdentityOptions>(opt=>
+            services.Configure<IdentityOptions>(opt =>
             {
                 opt.Password.RequiredLength = 6;
                 opt.Password.RequireDigit = true;
@@ -72,7 +74,7 @@ namespace MyWebStore
                 opt.SlidingExpiration = true;
             });
 
-            services.AddDbContext<MyWebStoreContext>(options => 
+            services.AddDbContext<MyWebStoreContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
@@ -96,7 +98,7 @@ namespace MyWebStore
                                 name: "areas",
                                 template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
-                                name: "default", 
+                                name: "default",
                                 template: "{controller=Home}/{action=Index}/{id?}");
 
 

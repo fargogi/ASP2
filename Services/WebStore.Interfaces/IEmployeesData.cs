@@ -8,9 +8,11 @@ namespace WebStore.Interfaces
 {
     public interface IEmployeesData
     {
-        IEnumerable<EmployeeViewModel> Get();
+        IEnumerable<EmployeeViewModel> GetAll();
 
         EmployeeViewModel GetByID(int id);
+
+        EmployeeViewModel UpdateEmployee(int id, EmployeeViewModel employee);
 
         void AddNew(EmployeeViewModel NewEmployee);
 
