@@ -35,6 +35,7 @@ namespace WebStore.Clients.Products
 
         public int GetProductsBrandCount(int brandId)
         {
+            //Переделать костыль
             return 1;
         }
 

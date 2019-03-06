@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Interfaces;
 using MyWebStore.DomainNew.ViewModels;
+using MyWebStore.DomainNew.DTO.Order;
 
 namespace MyWebStore.Controllers
 {
@@ -62,10 +63,15 @@ namespace MyWebStore.Controllers
                     OrderViewModel = model
                 });
 
+            var create_order_model = new CreateOrderModel
+            {
+                OrderViewModel = model,
+                Items = new List<OrderItemDTO>()
+            };
+
             var order = _OrderService.CreateOrder(
-                model,
-                _CartService.TransformCart(),
-                User.Identity.Name);
+                   create_order_model,
+                    User.Identity.Name);
             _CartService.RemoveAll();
             return RedirectToAction("OrderConfirmed", new { id = order.Id });
         }
