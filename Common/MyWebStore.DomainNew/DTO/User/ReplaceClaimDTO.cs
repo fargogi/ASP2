@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyWebStore.DomainNew.DTO.User
 {
-    public class ReplaceClaimDTO
+    public class ReplaceClaimDTO : IdentityModelDTO
     {
         public Claim OldClaim { get; set; }
         public Claim NewClaim { get; set; }

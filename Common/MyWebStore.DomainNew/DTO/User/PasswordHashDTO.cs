@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyWebStore.DomainNew.DTO.User
 {
-    public class PasswordHashDTO
+    public class PasswordHashDTO : IdentityModelDTO
     {
         public string Hash { get; set; }
     }
