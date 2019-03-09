@@ -14,11 +14,11 @@ using MyWebStore.DomainNew.Entities;
 namespace WebStore.ServiceHosting.Controllers
 {
     [ApiController, Route("api/[controller]"), Produces("application/json")]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly UserStore<User> _userStore;
 
-        public UserController(MyWebStoreContext db) => _userStore = new UserStore<User>(db) { AutoSaveChanges = true };
+        public UsersController(MyWebStoreContext db) => _userStore = new UserStore<User>(db) { AutoSaveChanges = true };
 
         #region Методы
         [HttpPost("UserId")]

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WebStore.Clients.Base
 {
-    public abstract class BaseClient
+    public abstract class BaseClient : IDisposable
     {
         protected readonly HttpClient _httpClient;
 
@@ -40,25 +40,23 @@ namespace WebStore.Clients.Base
             return default(T);
         }
 
-        protected HttpResponseMessage Post<T>(string url, T value) where T : new() => PostAsync(url, value).Result;
+        protected HttpResponseMessage Post<T>(string url, T value) => PostAsync(url, value).Result;
 
         protected async Task<HttpResponseMessage> PostAsync<T>(
             string url,
             T value,
             CancellationToken cancellationToken = default(CancellationToken))
-            where T : new()
         {
             var response = await _httpClient.PostAsJsonAsync(url, value, cancellationToken);
             return response.EnsureSuccessStatusCode();
         }
 
-        protected HttpResponseMessage Put<T>(string url, T value) where T : new() => PutAsync(url, value).Result;
+        protected HttpResponseMessage Put<T>(string url, T value) => PutAsync(url, value).Result;
 
         protected async Task<HttpResponseMessage> PutAsync<T>(
             string url,
             T value,
             CancellationToken cancellationToken = default(CancellationToken))
-            where T : new()
         {
             var response = await _httpClient.PutAsJsonAsync(url, value, cancellationToken);
             return response.EnsureSuccessStatusCode();
@@ -71,6 +69,11 @@ namespace WebStore.Clients.Base
             CancellationToken cancellationToken = default(CancellationToken))
         {
             return await _httpClient.DeleteAsync(url, cancellationToken);
+        }
+
+        public void Dispose()
+        {
+            _httpClient.Dispose();
         }
     }
 }
