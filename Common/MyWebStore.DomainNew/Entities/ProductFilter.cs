@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebStore.DomainEntities.Entities
+namespace MyWebStore.DomainNew.Entities
 {
     /// <summary>Класс для фильтрации продуктов</summary>
     public class ProductFilter

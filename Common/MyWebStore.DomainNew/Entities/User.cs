@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyWebStore.DomainEntities.Entities
+namespace MyWebStore.DomainNew.Entities
 {
     public class User : IdentityUser
     {

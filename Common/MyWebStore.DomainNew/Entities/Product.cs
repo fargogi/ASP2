@@ -1,5 +1,5 @@
-﻿using MyWebStore.DomainEntities.Entities.Base;
-using MyWebStore.DomainEntities.Entities.Base.Interfaces;
+﻿using MyWebStore.DomainNew.Entities.Base;
+using MyWebStore.DomainNew.Entities.Base.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebStore.DomainEntities.Entities
+namespace MyWebStore.DomainNew.Entities
 {
     /// <summary>Сущность товар</summary>
     public class Product: NamedEntity, IOrderedEntity

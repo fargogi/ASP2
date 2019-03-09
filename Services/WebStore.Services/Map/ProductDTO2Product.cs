@@ -1,4 +1,4 @@
-﻿using MyWebStore.DomainEntities.Entities;
+﻿using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.DTO;
 using System;
 using System.Collections.Generic;

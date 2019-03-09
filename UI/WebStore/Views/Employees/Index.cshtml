@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MyWebStore.DomainNew.ViewModels.EmployeeViewModel>
 @{
 	ViewData["Title"] = "Список сотрудников";
-	var is_admin = User.IsInRole(MyWebStore.DomainEntities.Entities.User.AdminRole);
+	var is_admin = User.IsInRole(MyWebStore.DomainNew.Entities.User.AdminRole);
 }
 
 

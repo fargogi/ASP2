@@ -21,7 +21,7 @@ namespace MyWebStore.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MyWebStore.DomainEntities.Entities.Brand", b =>
+            modelBuilder.Entity("MyWebStore.DomainNew.Entities.Brand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,7 @@ namespace MyWebStore.DAL.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("MyWebStore.DomainEntities.Entities.Product", b =>
+            modelBuilder.Entity("MyWebStore.DomainNew.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace MyWebStore.DAL.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MyWebStore.DomainEntities.Entities.Section", b =>
+            modelBuilder.Entity("MyWebStore.DomainNew.Entities.Section", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,21 +86,21 @@ namespace MyWebStore.DAL.Migrations
                     b.ToTable("Sections");
                 });
 
-            modelBuilder.Entity("MyWebStore.DomainEntities.Entities.Product", b =>
+            modelBuilder.Entity("MyWebStore.DomainNew.Entities.Product", b =>
                 {
-                    b.HasOne("MyWebStore.DomainEntities.Entities.Brand", "Brand")
+                    b.HasOne("MyWebStore.DomainNew.Entities.Brand", "Brand")
                         .WithMany("Products")
                         .HasForeignKey("BrandId");
 
-                    b.HasOne("MyWebStore.DomainEntities.Entities.Section", "Section")
+                    b.HasOne("MyWebStore.DomainNew.Entities.Section", "Section")
                         .WithMany("Products")
                         .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("MyWebStore.DomainEntities.Entities.Section", b =>
+            modelBuilder.Entity("MyWebStore.DomainNew.Entities.Section", b =>
                 {
-                    b.HasOne("MyWebStore.DomainEntities.Entities.Section", "ParentSection")
+                    b.HasOne("MyWebStore.DomainNew.Entities.Section", "ParentSection")
                         .WithMany()
                         .HasForeignKey("ParentId");
                 });

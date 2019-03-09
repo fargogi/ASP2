@@ -1,5 +1,5 @@
-﻿using MyWebStore.DomainEntities.Entities;
-using MyWebStore.DomainEntities.Entities.Base;
+﻿using MyWebStore.DomainNew.Entities;
+using MyWebStore.DomainNew.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;

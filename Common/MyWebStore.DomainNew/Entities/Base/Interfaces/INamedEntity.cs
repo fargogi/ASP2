@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebStore.DomainEntities.Entities.Base.Interfaces
+namespace MyWebStore.DomainNew.Entities.Base.Interfaces
 {
     /// <summary>Именованная сущность</summary>
     public interface INamedEntity:IBaseEntity

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebStore.DomainEntities.Entities.Base.Interfaces
+namespace MyWebStore.DomainNew.Entities.Base.Interfaces
 {
     /// <summary>Сущность с идентификатором</summary>
     public interface IBaseEntity

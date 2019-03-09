@@ -34,7 +34,7 @@ namespace MyWebStore.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = MyWebStore.DomainEntities.Entities.User.AdminRole)]
+        [Authorize(Roles = MyWebStore.DomainNew.Entities.User.AdminRole)]
         public IActionResult Edit(int? id)
         {
             if (id is null) return View(new EmployeeViewModel
@@ -52,7 +52,7 @@ namespace MyWebStore.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = MyWebStore.DomainEntities.Entities.User.AdminRole)]
+        [Authorize(Roles = MyWebStore.DomainNew.Entities.User.AdminRole)]
         public IActionResult Edit(EmployeeViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -73,7 +73,7 @@ namespace MyWebStore.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = MyWebStore.DomainEntities.Entities.User.AdminRole)]
+        [Authorize(Roles = MyWebStore.DomainNew.Entities.User.AdminRole)]
         public IActionResult Delete(int? id)
         {
             if (id is null) return BadRequest();

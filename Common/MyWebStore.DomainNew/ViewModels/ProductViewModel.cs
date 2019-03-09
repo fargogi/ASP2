@@ -1,4 +1,4 @@
-﻿using MyWebStore.DomainEntities.Entities.Base.Interfaces;
+﻿using MyWebStore.DomainNew.Entities.Base.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using Microsoft.Extensions.Configuration;
-using MyWebStore.DomainEntities.Entities;
+using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.DTO;
 using WebStore.Clients.Base;
 using WebStore.Interfaces;

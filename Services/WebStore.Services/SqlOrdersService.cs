@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyWebStore.DAL;
-using MyWebStore.DomainEntities.Entities;
 using MyWebStore.DomainNew.Entities;
 using WebStore.Interfaces;
-using MyWebStore.DomainNew.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using MyWebStore.DomainNew.DTO.Order;
 using WebStore.Services.Map;
 

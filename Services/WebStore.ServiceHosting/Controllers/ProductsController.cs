@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyWebStore.DomainEntities.Entities;
+using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.DTO;
 using WebStore.Interfaces;
 

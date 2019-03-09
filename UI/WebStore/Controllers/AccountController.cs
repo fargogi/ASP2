@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MyWebStore.DomainEntities.Entities;
+using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.ViewModels;
 
 namespace MyWebStore.Controllers
@@ -65,7 +65,7 @@ namespace MyWebStore.Controllers
 
             if (registration_result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, MyWebStore.DomainEntities.Entities.User.UserRole);
+                await _userManager.AddToRoleAsync(user, MyWebStore.DomainNew.Entities.User.UserRole);
                 await _signInManager.SignInAsync(user, false);
                 return RedirectToAction("Index", "Home");
             }

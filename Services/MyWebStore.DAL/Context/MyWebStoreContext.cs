@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MyWebStore.DomainEntities.Entities;
 using MyWebStore.DomainNew.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyWebStore.DAL
 {
