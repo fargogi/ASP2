@@ -11,6 +11,9 @@ using Microsoft.Extensions.Logging;
 using MyWebStore.DAL;
 using WebStore.Data;
 using MyWebStore.DomainNew;
+using System.Xml;
+using log4net;
+using System.Reflection;
 
 namespace MyWebStore
 {
@@ -18,24 +21,24 @@ namespace MyWebStore
     {
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args).Build();
-            //using (var scope = host.Services.CreateScope())
-            //{
-            //    var services = scope.ServiceProvider;
-            //    try
-            //    {
-            //        var db = services.GetRequiredService<MyWebStoreContext>();
-            //        db.Initialize();
-            //        services.InitializeIdentityAsync().Wait();
-            //    }
-            //    catch (Exception e)
-            //    {
+            var log4net_congig_xml = new XmlDocument();
 
-            //        services.GetRequiredService<ILogger<Program>>().
-            //                 LogError(e, "Ошибка инициализации контекста базы данных");
-            //    }
-            //}
-                host.Run();
+            var config_file_name = "log4net.config";
+
+            log4net_congig_xml.Load(config_file_name);
+
+            var repository = LogManager.CreateRepository(
+                Assembly.GetEntryAssembly(),
+                typeof(log4net.Repository.Hierarchy.Hierarchy)
+                );
+
+            log4net.Config.XmlConfigurator.Configure(repository, log4net_congig_xml["log4net"]);
+
+            ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
+            log.Info("Запуск приложения!!!");
+
+            CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

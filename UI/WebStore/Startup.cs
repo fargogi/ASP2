@@ -16,6 +16,7 @@ using WebStore.Clients.Products;
 using WebStore.Clients.Orders;
 using WebStore.Clients.Users;
 using WebStore.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MyWebStore
 {
@@ -102,8 +103,12 @@ namespace MyWebStore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env /*ILoggingBuilder loggers*/)
         {
+            //loggers.AddConsole();
+            //loggers.AddDebug();
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

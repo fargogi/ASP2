@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.ViewModels;
 
@@ -13,11 +14,16 @@ namespace MyWebStore.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(
+            UserManager<User> userManager,
+            SignInManager<User> signInManager, 
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -26,8 +32,10 @@ namespace MyWebStore.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             return View(model);
+
+            _logger.LogInformation($"Попытка входа пользователя {model.UserName} в систему");
 
             var login_result = await _signInManager.PasswordSignInAsync(
                 model.UserName, 
@@ -37,11 +45,13 @@ namespace MyWebStore.Controllers
 
             if (login_result.Succeeded)
             {
+                _logger.LogInformation($"Пользователь {model.UserName} удачно вошел в систему");
                 if (Url.IsLocalUrl(model.ReturnUrl))
                     return Redirect(model.ReturnUrl);
                 return RedirectToAction("Index", "Home");
             }
 
+            _logger.LogWarning($"Попытка входа пользователя {model.UserName} в систему провалена");
             ModelState.AddModelError("", "Неверный логин или пароль");
             return View(model);
 
