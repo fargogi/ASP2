@@ -15,9 +15,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MyWebStore.DAL;
 using MyWebStore.DomainNew.Entities;
+using WebStore.Clients.Users;
 using WebStore.Clients.Values;
 using WebStore.Interfaces;
 using WebStore.Interfaces.Api;
+using WebStore.Interfaces.Services;
 using WebStore.Services;
 
 namespace WebStore.ServiceHosting
@@ -39,8 +41,8 @@ namespace WebStore.ServiceHosting
             services.AddDbContext<MyWebStoreContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>()
-                    .AddEntityFrameworkStores<MyWebStoreContext>()
-                    .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<MyWebStoreContext>()
+                .AddDefaultTokenProviders();
 
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
             services.AddScoped<IProductData, SqlProductData>();

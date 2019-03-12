@@ -19,22 +19,22 @@ namespace MyWebStore
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                try
-                {
-                    var db = services.GetRequiredService<MyWebStoreContext>();
-                    db.Initialize();
-                    services.InitializeIdentityAsync().Wait();
-                }
-                catch (Exception e)
-                {
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    try
+            //    {
+            //        var db = services.GetRequiredService<MyWebStoreContext>();
+            //        db.Initialize();
+            //        services.InitializeIdentityAsync().Wait();
+            //    }
+            //    catch (Exception e)
+            //    {
 
-                    services.GetRequiredService<ILogger<Program>>().
-                             LogError(e, "Ошибка инициализации контекста базы данных");
-                }
-            }
+            //        services.GetRequiredService<ILogger<Program>>().
+            //                 LogError(e, "Ошибка инициализации контекста базы данных");
+            //    }
+            //}
                 host.Run();
         }
 

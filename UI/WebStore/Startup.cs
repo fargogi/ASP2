@@ -14,6 +14,8 @@ using WebStore.Clients.Values;
 using WebStore.Clients.Employees;
 using WebStore.Clients.Products;
 using WebStore.Clients.Orders;
+using WebStore.Clients.Users;
+using WebStore.Interfaces.Services;
 
 namespace MyWebStore
 {
@@ -52,9 +54,26 @@ namespace MyWebStore
            // services.AddScoped<IOrderService, SqlOrderService>();
             services.AddScoped<IOrderService, OrdersClient>();
 
+            services.AddTransient<IUsersClient, UsersClient>();
+
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<MyWebStoreContext>()
+                //.AddEntityFrameworkStores<WebStoreContext>()
                 .AddDefaultTokenProviders();
+
+            #region Custom identity
+
+            services.AddTransient<IUserStore<User>, UsersClient>();
+            services.AddTransient<IUserRoleStore<User>, UsersClient>();
+            services.AddTransient<IUserClaimStore<User>, UsersClient>();
+            services.AddTransient<IUserPasswordStore<User>, UsersClient>();
+            services.AddTransient<IUserTwoFactorStore<User>, UsersClient>();
+            services.AddTransient<IUserEmailStore<User>, UsersClient>();
+            services.AddTransient<IUserPhoneNumberStore<User>, UsersClient>();
+            services.AddTransient<IUserLoginStore<User>, UsersClient>();
+            services.AddTransient<IUserLockoutStore<User>, UsersClient>();
+            services.AddTransient<IRoleStore<IdentityRole>, RolesClient>();
+
+            #endregion
 
             services.Configure<IdentityOptions>(opt =>
             {
