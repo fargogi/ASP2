@@ -35,7 +35,7 @@ namespace MyWebStore.Controllers
             if (!ModelState.IsValid)
             return View(model);
 
-            _logger.LogInformation($"Попытка входа пользователя {model.UserName} в систему");
+            _logger.LogInformation(new EventId(0, "Login"), $"Попытка входа пользователя {model.UserName} в систему");
 
             var login_result = await _signInManager.PasswordSignInAsync(
                 model.UserName, 
@@ -45,13 +45,13 @@ namespace MyWebStore.Controllers
 
             if (login_result.Succeeded)
             {
-                _logger.LogInformation($"Пользователь {model.UserName} удачно вошел в систему");
+                _logger.LogInformation(new EventId(1, "Login"), $"Пользователь {model.UserName} удачно вошел в систему");
                 if (Url.IsLocalUrl(model.ReturnUrl))
                     return Redirect(model.ReturnUrl);
                 return RedirectToAction("Index", "Home");
             }
 
-            _logger.LogWarning($"Попытка входа пользователя {model.UserName} в систему провалена");
+            _logger.LogWarning(new EventId(1, "Login"), $"Попытка входа пользователя {model.UserName} в систему провалена");
             ModelState.AddModelError("", "Неверный логин или пароль");
             return View(model);
 

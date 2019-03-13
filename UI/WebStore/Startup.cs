@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyWebStore.DAL;
-using MyWebStore.DomainNew.Entities;
-using WebStore.Services;
-using WebStore.Interfaces;
-using System;
-using WebStore.Interfaces.Api;
-using WebStore.Clients.Values;
-using WebStore.Clients.Employees;
-using WebStore.Clients.Products;
-using WebStore.Clients.Orders;
-using WebStore.Clients.Users;
-using WebStore.Interfaces.Services;
 using Microsoft.Extensions.Logging;
+using MyWebStore.DomainNew.Entities;
+using System;
+using WebStore.Clients.Employees;
+using WebStore.Clients.Orders;
+using WebStore.Clients.Products;
+using WebStore.Clients.Users;
+using WebStore.Clients.Values;
+using WebStore.Interfaces.Api;
+using WebStore.Interfaces.Services;
+using WebStore.Interfaces;
+using WebStore.Logger;
+using WebStore.Services.Middleware;
+using WebStore.Services;
+
 
 namespace MyWebStore
 {
@@ -32,10 +33,8 @@ namespace MyWebStore
         /// Конструктор, принимающий интерфейс IConfiguration
         /// </summary>
         /// <param name="configuration"></param>
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -98,26 +97,32 @@ namespace MyWebStore
                 opt.SlidingExpiration = true;
             });
 
-            services.AddDbContext<MyWebStoreContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<MyWebStoreContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env /*ILoggingBuilder loggers*/)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory log /*ILoggingBuilder loggers*/)
         {
             //loggers.AddConsole();
             //loggers.AddDebug();
 
+            log.AddLog4Net();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
             // Поддержка статических файлов
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseStatusCodePagesWithRedirects("~/home/ErrorStatus/{0}");
+
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             //Обработка запросов в mvc-формате 
             app.UseMvc(routes =>

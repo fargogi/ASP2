@@ -13,9 +13,9 @@ namespace WebStore.Clients.Orders
 {
     public class OrdersClient : BaseClient, IOrderService
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<OrdersClient> _logger;
 
-        public OrdersClient(IConfiguration configuration, ILogger logger) 
+        public OrdersClient(IConfiguration configuration, ILogger<OrdersClient> logger) 
             : base(configuration)
         {
             ServiceAddress = "api/orders";

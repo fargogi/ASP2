@@ -108,6 +108,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\MyWebStore.DomainNew\MyWebStore.DomainNew.csproj" />
+    <ProjectReference Include="..\..\Common\WebStore.Logger\WebStore.Logger.csproj" />
     <ProjectReference Include="..\..\Services\MyWebStore.DAL\MyWebStore.DAL.csproj" />
     <ProjectReference Include="..\..\Services\WebStore.Clients\WebStore.Clients.csproj" />
     <ProjectReference Include="..\..\Services\WebStore.Interfaces\WebStore.Interfaces.csproj" />
