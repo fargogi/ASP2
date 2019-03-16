@@ -49,9 +49,10 @@ namespace MyWebStore
             //services.AddScoped<IProductData, SqlProductData>();
             services.AddScoped<IProductData, ProductsClient>();
 
-            services.AddScoped<ICartService, CookieCartService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICartStore, CookiesCartStore>();
 
-           // services.AddScoped<IOrderService, SqlOrderService>();
+            // services.AddScoped<IOrderService, SqlOrderService>();
             services.AddScoped<IOrderService, OrdersClient>();
 
             services.AddTransient<IUsersClient, UsersClient>();
