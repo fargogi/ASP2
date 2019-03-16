@@ -54,7 +54,7 @@ namespace WebStore.Logger
 
             var msg = formatter(state, exception);
 
-            if (!string.IsNullOrEmpty(msg) && exception is null) return;
+            if (string.IsNullOrEmpty(msg) && exception is null) return;
 
             switch (level)
             {

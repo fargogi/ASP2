@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Text;
 using System.Xml;
+using System.IO;
+using System.Reflection;
 
 namespace WebStore.Logger
 {
@@ -20,6 +22,11 @@ namespace WebStore.Logger
             {
                 var xml = new XmlDocument();
                 var fileName = _configurationFile;
+                if (!Path.IsPathRooted(fileName))
+                {
+                    var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                    fileName = Path.Combine(dir, fileName);
+                }
                 xml.Load(fileName);
                 return new Log4NetLogger(category, xml["log4net"]);
             });

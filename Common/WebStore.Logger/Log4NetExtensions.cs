@@ -12,7 +12,6 @@ namespace WebStore.Logger
         public static ILoggerFactory AddLog4Net(this ILoggerFactory factory, string configurationFile = "log4net.config")
         {
             var file = new FileInfo(configurationFile);
-            factory.AddProvider(new Log4NetLoggerProvider(configurationFile));
 
             if (!Path.IsPathRooted(configurationFile))
             {
@@ -22,6 +21,8 @@ namespace WebStore.Logger
 
                 configurationFile = Path.Combine(dir, configurationFile);
             }
+
+            factory.AddProvider(new Log4NetLoggerProvider(configurationFile));
             return factory;
         }
     }
