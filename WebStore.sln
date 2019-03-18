@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Logger", "Common\W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{66536367-567B-4F1F-BA79-2D39905EEEEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Tests", "Tests\WebStore.Tests\WebStore.Tests.csproj", "{FEA76EB5-5CCD-43FC-9396-72DB87EB20E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Tests", "Tests\WebStore.Tests\WebStore.Tests.csproj", "{FEA76EB5-5CCD-43FC-9396-72DB87EB20E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Services.Tests", "Tests\WebStore.Services.Tests\WebStore.Services.Tests.csproj", "{D4124E47-A864-431D-92BD-D836F75577E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Services.Tests", "Tests\WebStore.Services.Tests\WebStore.Services.Tests.csproj", "{D4124E47-A864-431D-92BD-D836F75577E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.TagHelpers", "Common\WebStore.TagHelpers\WebStore.TagHelpers.csproj", "{3FC7AF9B-87D3-43C4-BA94-A5B156E30FCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{D4124E47-A864-431D-92BD-D836F75577E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4124E47-A864-431D-92BD-D836F75577E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4124E47-A864-431D-92BD-D836F75577E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FC7AF9B-87D3-43C4-BA94-A5B156E30FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC7AF9B-87D3-43C4-BA94-A5B156E30FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC7AF9B-87D3-43C4-BA94-A5B156E30FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC7AF9B-87D3-43C4-BA94-A5B156E30FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{C27FEF56-6674-41BB-BBAC-959964BC5DA3} = {8313FA74-8318-422A-BAD3-5F1F1CA8D6A5}
 		{FEA76EB5-5CCD-43FC-9396-72DB87EB20E5} = {66536367-567B-4F1F-BA79-2D39905EEEEF}
 		{D4124E47-A864-431D-92BD-D836F75577E1} = {66536367-567B-4F1F-BA79-2D39905EEEEF}
+		{3FC7AF9B-87D3-43C4-BA94-A5B156E30FCA} = {8313FA74-8318-422A-BAD3-5F1F1CA8D6A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {880AA94B-7DA9-4363-B32C-FBD63879AB00}
