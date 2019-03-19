@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace WebStore.TagHelpers
 {
-    [HtmlTargetElement("a", Attributes = ACTIVE_ROUTE_ATTRIBUTE_NAME)]
+    [HtmlTargetElement(Attributes = ACTIVE_ROUTE_ATTRIBUTE_NAME)]
     public class ActiveRouteTagHelper : TagHelper
     {
         public const string ACTIVE_ROUTE_ATTRIBUTE_NAME = "is-active-route";
+        public const string IGNORE_ACTION_ATTRIBUTE_NAME = "ignore-action";
+
         private Dictionary<string, string> _RouteValues;
 
         [HtmlAttributeName("asp-action")]
@@ -34,14 +36,15 @@ namespace WebStore.TagHelpers
         {
             base.Process(context, output);
 
-            if (ShouldBeActive())
+            var ignore_action = context.AllAttributes.ContainsName(IGNORE_ACTION_ATTRIBUTE_NAME);
+            if (ShouldBeActive(ignore_action))
                 MakeActive(output);
 
             output.Attributes.RemoveAll(ACTIVE_ROUTE_ATTRIBUTE_NAME);
         }
 
 
-        private bool ShouldBeActive()
+        private bool ShouldBeActive(bool ignoreAction)
         {
             var route_values = ViewContext.RouteData.Values;
 
@@ -51,7 +54,7 @@ namespace WebStore.TagHelpers
             const StringComparison STR_COMP = StringComparison.CurrentCultureIgnoreCase;
 
             if (Controller?.Equals(current_controller, STR_COMP) == false) return false;
-            if (Action?.Equals(current_action, STR_COMP) == false) return false;
+            if (!ignoreAction || Action?.Equals(current_action, STR_COMP) == false) return false;
 
             foreach (var (key, value) in RouteValues)
                 if (!route_values.ContainsKey(key) || route_values[key].ToString() != value) return false;

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MyWebStore.DomainNew.ViewModels.Product;
 
 namespace MyWebStore.Components
 {
@@ -17,10 +18,16 @@ namespace MyWebStore.Components
             _productData = productData;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string BrandId)
         {
+            var brand_id = int.TryParse(BrandId, out var id) ? id : (int?)null;
+
             var brands = GetBrands();
-            return View(brands);
+            return View(new BrandCompleteViewModel
+            {
+                Brands = GetBrands(),
+                CurrentBrandId = id
+            });
         }
 
         private List<BrandViewModel> GetBrands()

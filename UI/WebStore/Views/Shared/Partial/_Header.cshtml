@@ -30,7 +30,7 @@
 		<!--header-middle-->
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4">
+				@*<div class="col-sm-4">
 					<div class="logo pull-left">
 						<a asp-controller="Home" asp-action="Index"><img src="images/home/logo.png" alt="" /></a>
 					</div>
@@ -56,7 +56,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div>*@
 				<div class="col-sm-8">
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
@@ -90,7 +90,7 @@
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             @*<li><a href="index.html" class="active">Home</a></li>*@
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li><a is-active-route asp-controller="Catalog" asp-action="Shop">Товары</a></li>
+                            <li><a is-active-route ignore-action asp-controller="Catalog" asp-action="Shop">Товары</a></li>
                             <li class="dropdown">
                                 <a href="#">Каталог<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">

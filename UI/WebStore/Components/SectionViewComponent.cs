@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MyWebStore.DomainNew.ViewModels.Product;
 
 namespace MyWebStore.Components
 {
@@ -17,14 +18,22 @@ namespace MyWebStore.Components
             _productData = productData;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string sectionId)
         {
-            var sections = GetSections();
-            return View(sections);
+            var section_id = int.TryParse(sectionId, out var id) ? id : (int?)null;
+
+            var sections = GetSections(section_id, out var parent_section_id);
+            return View(new SectionCompleteViewModel
+            {
+                Sections = sections,
+                CurrentSectionId = section_id,
+                CurrentParentSectionId = parent_section_id
+            });
         }
 
-        private List<SectionViewModel> GetSections()
+        private List<SectionViewModel> GetSections(int? sectionId, out int? parentSectionId)
         {
+            parentSectionId = null;
             var sections = _productData.GetSections();
             var parent_sections = sections.Where(section => section.ParentId is null).ToArray();
 
@@ -41,6 +50,9 @@ namespace MyWebStore.Components
                 var children_sections = sections.Where(section => section.ParentId == parent_section_view.Id);
                 foreach (var child_section in children_sections)
                 {
+                    if (child_section.Id == sectionId)
+                        parentSectionId = parent_section_view.Id;
+
                     parent_section_view.ChildSection.Add(new SectionViewModel
                     {
                         Id = child_section.Id,
