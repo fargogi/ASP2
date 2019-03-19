@@ -42,5 +42,15 @@ namespace WebStore.Services
         {
             return TestData.Products.FirstOrDefault(p => p.Id == id).Map();
         }
+
+        public Brand GetBrandById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Section GetSectionById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MyWebStore.DomainNew.Entities.Base.Interfaces;
+﻿using MyWebStore.DomainNew.DTO.Product;
+using MyWebStore.DomainNew.Entities.Base.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,5 +17,7 @@ namespace MyWebStore.DomainNew.DTO
         public decimal Price { get; set; }
 
         public BrandDTO Brand { get; set; }
+
+        public SectionDTO Section { get; set; }
     }
 }

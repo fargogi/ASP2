@@ -13,9 +13,13 @@ namespace WebStore.Interfaces
         /// <returns>Возвращает бренды</returns>
         IEnumerable<Brand> GetBrands();
 
+        Brand GetBrandById(int id);
+
         /// <summary>Секции</summary>
         /// <returns>Возвращает секции</returns>
         IEnumerable<Section> GetSections();
+
+        Section GetSectionById(int id);
 
         /// <summary>Товары</summary>
         /// <param name="filter">Фильтрация товаров</param>

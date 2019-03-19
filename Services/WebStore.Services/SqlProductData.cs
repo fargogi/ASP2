@@ -17,6 +17,7 @@ namespace WebStore.Services
 
         public SqlProductData(MyWebStoreContext db) => _db = db;
 
+        public Brand GetBrandById(int id) => _db.Brands.FirstOrDefault(b => b.Id == id);
 
         public IEnumerable<Brand> GetBrands()
         {
@@ -45,7 +46,7 @@ namespace WebStore.Services
                  .Include(p => p.Section);
 
             if (filter.BrandId != null)
-                return result.Where(p => 
+                return result.Where(p =>
                 p.BrandId == filter.BrandId)
                     .Select(ProductDTO2Product.Map);
             if (filter.SectionId != null)
@@ -59,6 +60,8 @@ namespace WebStore.Services
         {
             return _db.Products.Count(p => p.BrandId == brandId);
         }
+
+        public Section GetSectionById(int id) => _db.Sections.FirstOrDefault(s => s.Id == id);
 
         public IEnumerable<Section> GetSections()
         {

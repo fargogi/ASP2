@@ -17,6 +17,8 @@ namespace WebStore.Clients.Products
             ServiceAddress = "api/products";
         }
 
+        public Brand GetBrandById(int id) => Get<Brand>($"{ServiceAddress}/brands/{id}");
+
         public IEnumerable<Brand> GetBrands()
         {
             return Get<List<Brand>>($"{ServiceAddress}/brands");
@@ -38,6 +40,8 @@ namespace WebStore.Clients.Products
             //Переделать костыль
             return 1;
         }
+
+        public Section GetSectionById(int id) => Get<Section>($"{ServiceAddress}/sections/{id}");
 
         public IEnumerable<Section> GetSections() => Get<List<Section>>($"{ServiceAddress}/sections");
     }
