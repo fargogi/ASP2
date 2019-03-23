@@ -64,7 +64,7 @@ namespace WebStore.Services
             if (filter.PageSize != null)
             {
                 result = result
-                    .Skip(filter.Page - 1 * (int)filter.PageSize)
+                    .Skip((filter.Page - 1) * (int)filter.PageSize)
                     .Take((int)filter.PageSize);
             }
 

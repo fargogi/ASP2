@@ -47,7 +47,8 @@ namespace WebStore.Clients.Base
             T value,
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            var response = await _httpClient.PostAsJsonAsync(url, value, cancellationToken);
+            var response = await _httpClient.PostAsJsonAsync(url, value, cancellationToken)
+                .ConfigureAwait(false);
             return response.EnsureSuccessStatusCode();
         }
 

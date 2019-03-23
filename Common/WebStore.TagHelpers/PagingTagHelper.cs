@@ -35,7 +35,7 @@ namespace WebStore.TagHelpers
             var ul = new TagBuilder("ul");
             ul.AddCssClass("pagination");
 
-            for (int i = 1; i < PageViewModel.TotalPages; i++)
+            for (var i = 1; i < PageViewModel.TotalPages; i++)
             {
                 ul.InnerHtml.AppendHtml(CreateItem(i, url_helper));
             }
