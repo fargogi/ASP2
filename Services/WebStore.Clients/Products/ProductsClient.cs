@@ -7,6 +7,7 @@ using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.DTO;
 using WebStore.Clients.Base;
 using WebStore.Interfaces;
+using MyWebStore.DomainNew.DTO.Product;
 
 namespace WebStore.Clients.Products
 {
@@ -29,10 +30,9 @@ namespace WebStore.Clients.Products
             return Get<ProductDTO>($"{ServiceAddress}/{id}");
         }
 
-        public IEnumerable<ProductDTO> GetProducts(ProductFilter filter = null)
+        public PagedProductDTO GetProducts(ProductFilter Filter = null)
         {
-            var response = Post(ServiceAddress, filter);
-            return response.Content.ReadAsAsync<IEnumerable<ProductDTO>>().Result;
+            return Post(ServiceAddress, Filter).Content.ReadAsAsync<PagedProductDTO>().Result;
         }
 
         public int GetProductsBrandCount(int brandId)

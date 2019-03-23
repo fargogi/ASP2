@@ -67,7 +67,7 @@ namespace WebStore.Services
             {
                 Ids = _cartStore.Cart.Items.Select(i => i.ProductId).ToArray()
 
-            }).Select(p => new ProductViewModel
+            }).Products.Select(p => new ProductViewModel
             {
                 Id = p.Id,
                 ImageUrl = p.ImageUrl,

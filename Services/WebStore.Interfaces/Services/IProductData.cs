@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.DTO;
+using MyWebStore.DomainNew.DTO.Product;
 
 namespace WebStore.Interfaces
 {
@@ -24,7 +25,7 @@ namespace WebStore.Interfaces
         /// <summary>Товары</summary>
         /// <param name="filter">Фильтрация товаров</param>
         /// <returns>Возвращает список товаров</returns>
-        IEnumerable<ProductDTO> GetProducts(ProductFilter filter = null);
+        PagedProductDTO GetProducts(ProductFilter filter = null);
 
         /// <summary>Метод возвращающий количество товаров определенного бренда</summary>
         /// <param name="brandId">Идентификатор бренда</param>

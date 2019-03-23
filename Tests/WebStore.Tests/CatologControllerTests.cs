@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using MyWebStore.Controllers;
 using MyWebStore.DomainNew.DTO;
+using MyWebStore.DomainNew.DTO.Product;
 using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.ViewModels;
 using System;
@@ -49,7 +51,7 @@ namespace WebStore.Tests
                     }
                 });
 
-            var controller = new CatalogController(product_data_mock.Object);
+            var controller = new CatalogController(product_data_mock.Object, new Mock<IConfiguration>().Object);
 
             var result = controller.ProductDetails(EXPECTED_ID);
 
@@ -74,7 +76,7 @@ namespace WebStore.Tests
                 .Setup(p => p.GetProductById(It.IsAny<int>()))
                 .Returns((ProductDTO)null);
 
-            var controller = new CatalogController(product_data_mock.Object);
+            var controller = new CatalogController(product_data_mock.Object, new Mock<IConfiguration>().Object);
 
             var result = controller.ProductDetails(-1);
 
@@ -90,40 +92,42 @@ namespace WebStore.Tests
             var product_data_mock = new Mock<IProductData>();
             product_data_mock
                 .Setup(p => p.GetProducts(It.IsAny<ProductFilter>()))
-                .Returns<ProductFilter>(filter => new[]
+                .Returns<ProductFilter>(filter => new PagedProductDTO
                 {
-                    new ProductDTO
+                        Products = new[]
                     {
-                        Id = 1,
-                        Name="Product 1",
-                        Order = 1,
-                        Price = 10,
-                        ImageUrl = "image1.jpg",
-                        Brand = new BrandDTO
+                        new ProductDTO
                         {
-                            Id=1,
-                            Name = "Brand 1"
-                        }
+                            Id = 1,
+                            Name="Product 1",
+                            Order = 1,
+                            Price = 10,
+                            ImageUrl = "image1.jpg",
+                            Brand = new BrandDTO
+                            {
+                                Id=1,
+                                Name = "Brand 1"
+                            }
 
-                    },
-                    new ProductDTO
-                    {
-                        Id = 2,
-                        Name="Product 2",
-                        Order = 2,
-                        Price = 20,
-                        ImageUrl = "image2.jpg",
-                        Brand = new BrandDTO
+                        },
+                        new ProductDTO
                         {
-                            Id=1,
-                            Name = "Brand 1"
-                        }
+                            Id = 2,
+                            Name="Product 2",
+                            Order = 2,
+                            Price = 20,
+                            ImageUrl = "image2.jpg",
+                            Brand = new BrandDTO
+                            {
+                                Id=1,
+                                Name = "Brand 1"
+                            }
 
+                        }
                     }
-
                 });
 
-            var controller = new CatalogController(product_data_mock.Object);
+            var controller = new CatalogController(product_data_mock.Object, new Mock<IConfiguration>().Object);
 
             var result = controller.Shop(EXPECTED_SECTION_ID, EXPECTED_BRAND_ID);
 

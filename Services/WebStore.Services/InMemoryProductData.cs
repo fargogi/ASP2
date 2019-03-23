@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MyWebStore.DomainNew.DTO;
 using WebStore.Services.Map;
+using MyWebStore.DomainNew.DTO.Product;
 
 namespace WebStore.Services
 {
@@ -17,7 +18,7 @@ namespace WebStore.Services
 
         public IEnumerable<Section> GetSections() => TestData.Sections;
 
-        public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
+        public PagedProductDTO GetProducts(ProductFilter filter)
         {
             var products = TestData.Products;
             if (filter.SectionId.HasValue)
@@ -30,7 +31,7 @@ namespace WebStore.Services
                 p.BrandId.Value.Equals(filter.BrandId.Value)).ToList();
             }
 
-            return products.Select(ProductDTO2Product.Map);
+            return new PagedProductDTO {Products = products.Select(ProductDTO2Product.Map)};
         }
 
         public int GetProductsBrandCount(int brandId)

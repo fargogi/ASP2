@@ -11,6 +11,7 @@ using Moq;
 using WebStore.Interfaces.Services;
 using MyWebStore.DomainNew.DTO;
 using MyWebStore.DomainNew.Entities;
+using MyWebStore.DomainNew.DTO.Product;
 
 namespace WebStore.Services.Tests
 {
@@ -238,10 +239,14 @@ namespace WebStore.Services.Tests
                 }
             };
 
+            var model = new PagedProductDTO
+            {
+                Products=products
+            };
             var product_data_mock = new Mock<IProductData>();
 
             product_data_mock
-                .Setup(c => c.GetProducts(It.IsAny<ProductFilter>())).Returns(products);
+                .Setup(c => c.GetProducts(It.IsAny<ProductFilter>())).Returns(model);
 
             var cart_store_mock = new Mock<ICartStore>();
 

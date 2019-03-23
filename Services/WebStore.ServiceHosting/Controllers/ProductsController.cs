@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyWebStore.DomainNew.Entities;
 using MyWebStore.DomainNew.DTO;
 using WebStore.Interfaces;
+using MyWebStore.DomainNew.DTO.Product;
 
 namespace WebStore.ServiceHosting.Controllers
 {
@@ -37,7 +38,7 @@ namespace WebStore.ServiceHosting.Controllers
         }
 
         [HttpPost, ActionName("Post")]
-        public IEnumerable<ProductDTO> GetProducts([FromBody] ProductFilter filter = null)
+        public PagedProductDTO GetProducts([FromBody] ProductFilter filter = null)
         {
             return _productData.GetProducts(filter);
         }

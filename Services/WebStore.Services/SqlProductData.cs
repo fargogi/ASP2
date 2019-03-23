@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MyWebStore.DomainNew.DTO;
 using WebStore.Services.Map;
+using MyWebStore.DomainNew.DTO.Product;
 
 namespace WebStore.Services
 {
@@ -32,28 +33,48 @@ namespace WebStore.Services
                 .FirstOrDefault(p => p.Id == id).Map();
         }
 
-        public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
+        public PagedProductDTO GetProducts(ProductFilter filter)
         {
-            if (filter is null)
-                return _db.Products
+            IQueryable<Product> query = _db.Products
                         .Include(p => p.Brand)
-                        .Include(p => p.Section)
-                        .AsEnumerable()
-                        .Select(ProductDTO2Product.Map);
+                        .Include(p => p.Section);
+
+            if (filter is null)
+                return new PagedProductDTO
+                {
+                    Products = query
+                    .AsEnumerable()
+                    .Select(ProductDTO2Product.Map),
+
+                    TotalCount = query.Count()
+                };
 
             IQueryable<Product> result = _db.Products
                  .Include(p => p.Brand)
                  .Include(p => p.Section);
 
             if (filter.BrandId != null)
-                return result.Where(p =>
-                p.BrandId == filter.BrandId)
-                    .Select(ProductDTO2Product.Map);
+                result = result.Where(p =>
+                  p.BrandId == filter.BrandId);
             if (filter.SectionId != null)
-                return result.Where(p => p.SectionId == filter.SectionId)
-                    .Select(ProductDTO2Product.Map);
+                result = result.Where(p => p.SectionId == filter.SectionId);
 
-            return result.Select(ProductDTO2Product.Map).AsEnumerable();
+            var total_count = result.Count();
+
+            if (filter.PageSize != null)
+            {
+                result = result
+                    .Skip(filter.Page - 1 * (int)filter.PageSize)
+                    .Take((int)filter.PageSize);
+            }
+
+            var model = new PagedProductDTO
+            {
+                TotalCount = total_count,
+                Products = result.AsEnumerable().Select(ProductDTO2Product.Map)
+            };
+
+            return model;
         }
 
         public int GetProductsBrandCount(int brandId)

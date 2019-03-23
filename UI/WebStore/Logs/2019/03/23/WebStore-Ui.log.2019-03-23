@@ -148,3 +148,242 @@ System.InvalidOperationException: The partial view 'Catalog/Partial/_ProductItem
 
 2019-03-23 12:43:22,460 [1] ?     - Запуск приложения!!!
 
+2019-03-23 13:19:10,271 [1] ?     - Запуск приложения!!!
+
+2019-03-23 13:24:40,999 [1] ?     - Запуск приложения!!!
+
+2019-03-23 13:57:03,453 [1] ?     - Запуск приложения!!!
+
+2019-03-23 14:10:38,896 [1] ?     - Запуск приложения!!!
+
+2019-03-23 14:22:30,751 [1] ?     - Запуск приложения!!!
+
+2019-03-23 14:23:55,840 [1] ?     - Запуск приложения!!!
+
+2019-03-23 14:28:48,519 [1] ?     - Запуск приложения!!!
+
+2019-03-23 14:31:42,815 [1] ?     - Запуск приложения!!!
+
+2019-03-23 14:32:51,736 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:29:45,443 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:31:38,252 [12] ?     - Sequence contains no matching element
+
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WebStore.Services.CartService.<>c__DisplayClass7_0.<TransformCart>b__2(CartItem i) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\CartService.cs:line 82
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](List`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at WebStore.Services.CartService.TransformCart() in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\CartService.cs:line 80
+   at MyWebStore.Components.CartViewComponent.Invoke() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Components\CartViewComponent.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeSyncCore(ObjectMethodExecutor executor, ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+   at AspNetCore.Views_Shared_Partial__Header.ExecuteAsync() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Shared\Partial\_Header.cshtml:line 38
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCore.Views_Shared__LayoutBase.<ExecuteAsync>b__33_1() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Shared\_LayoutBase.cshtml:line 38
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__LayoutBase.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at WebStore.Services.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\Middleware\ErrorHandlingMiddleware.cs:line 23
+2019-03-23 15:31:42,567 [12] ?     - Sequence contains no matching element
+
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WebStore.Services.CartService.<>c__DisplayClass7_0.<TransformCart>b__2(CartItem i) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\CartService.cs:line 82
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](List`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at WebStore.Services.CartService.TransformCart() in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\CartService.cs:line 80
+   at MyWebStore.Components.CartViewComponent.Invoke() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Components\CartViewComponent.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeSyncCore(ObjectMethodExecutor executor, ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+   at AspNetCore.Views_Shared_Partial__Header.ExecuteAsync() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Shared\Partial\_Header.cshtml:line 38
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCore.Views_Shared__LayoutBase.<ExecuteAsync>b__33_1() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Shared\_LayoutBase.cshtml:line 38
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__LayoutBase.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at WebStore.Services.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\Middleware\ErrorHandlingMiddleware.cs:line 23
+2019-03-23 15:31:46,099 [15] ?     - Sequence contains no matching element
+
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WebStore.Services.CartService.<>c__DisplayClass7_0.<TransformCart>b__2(CartItem i) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\CartService.cs:line 82
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](List`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at WebStore.Services.CartService.TransformCart() in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\CartService.cs:line 80
+   at MyWebStore.Components.CartViewComponent.Invoke() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Components\CartViewComponent.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeSyncCore(ObjectMethodExecutor executor, ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+   at AspNetCore.Views_Shared_Partial__Header.ExecuteAsync() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Shared\Partial\_Header.cshtml:line 38
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCore.Views_Shared__LayoutBase.<ExecuteAsync>b__33_1() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Shared\_LayoutBase.cshtml:line 38
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__LayoutBase.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at WebStore.Services.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\Middleware\ErrorHandlingMiddleware.cs:line 23
+2019-03-23 15:37:34,788 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:39:10,926 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:40:08,056 [6] ?     - The partial view 'Partal/_OrderPartial' was not found. The following locations were searched:
+/Views/Cart/Partal/_OrderPartial.cshtml
+/Views/Shared/Partal/_OrderPartial.cshtml
+/Pages/Shared/Partal/_OrderPartial.cshtml
+
+System.InvalidOperationException: The partial view 'Partal/_OrderPartial' was not found. The following locations were searched:
+/Views/Cart/Partal/_OrderPartial.cshtml
+/Views/Shared/Partal/_OrderPartial.cshtml
+/Pages/Shared/Partal/_OrderPartial.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCore.Views_Cart_Details.ExecuteAsync() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Cart\Details.cshtml:line 64
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at WebStore.Services.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\Middleware\ErrorHandlingMiddleware.cs:line 23
+2019-03-23 15:41:54,702 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:43:35,062 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:46:39,175 [1] ?     - Запуск приложения!!!
+
+2019-03-23 15:55:14,721 [1] ?     - Запуск приложения!!!
+
+2019-03-23 16:00:22,454 [1] ?     - Запуск приложения!!!
+
+2019-03-23 16:01:33,665 [1] ?     - Запуск приложения!!!
+
+2019-03-23 16:04:05,900 [1] ?     - Запуск приложения!!!
+
+2019-03-23 16:09:11,081 [1] ?     - Запуск приложения!!!
+
+2019-03-23 16:09:57,004 [1] ?     - Запуск приложения!!!
+
+2019-03-23 16:17:00,062 [1] ?     - Запуск приложения!!!
+
+2019-03-23 17:22:18,490 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:21:05,947 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:24:26,100 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:30:53,510 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:36:09,649 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:39:21,370 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:43:28,179 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:45:34,540 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:47:13,434 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:51:25,769 [1] ?     - Запуск приложения!!!
+
+2019-03-23 18:54:38,850 [1] ?     - Запуск приложения!!!
+
+2019-03-23 19:00:13,475 [1] ?     - Запуск приложения!!!
+
+2019-03-23 19:00:36,197 [1] ?     - Запуск приложения!!!
+
+2019-03-23 19:04:42,350 [1] ?     - Запуск приложения!!!
+
+2019-03-23 19:06:00,650 [1] ?     - Запуск приложения!!!
+
+2019-03-23 19:11:21,829 [1] ?     - Запуск приложения!!!
+
