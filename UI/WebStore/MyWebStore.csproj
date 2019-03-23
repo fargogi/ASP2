@@ -59,7 +59,7 @@
     <Content Update="Views\Account\Login.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Shared\Partial\_FeaturedItems.cshtml">
+    <Content Update="Views\Shared\Partial\_FeaturesItems.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Shared\Partial\_Slider.cshtml">

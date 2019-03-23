@@ -17,10 +17,12 @@
 
 	{
 		"outputFileName": "wwwroot/js/site.js",
-		"inputFiles": [
-			"wwwroot/js/main.js",
-			"wwwroot/js/price-range.js"
-		],
+    "inputFiles": [
+      "wwwroot/js/main.js",
+      "wwwroot/js/price-range.js",
+      "wwwroot/js/Cart/CartLogic.js"
+
+    ],
 		"minify": {
 			"enabled": true,
 			"renameLocals": true

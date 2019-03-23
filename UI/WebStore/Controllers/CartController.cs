@@ -21,6 +21,9 @@ namespace MyWebStore.Controllers
             _OrderService = OrderService;
         }
 
+        public IActionResult GetCartView() => ViewComponent("Cart");
+
+
         public IActionResult Details()
         {
             return View(new DetailsViewModel
@@ -33,13 +36,13 @@ namespace MyWebStore.Controllers
         public IActionResult DecrementFromCart(int id)
         {
             _CartService.DecrementFromCart(id);
-            return RedirectToAction("Details");
+            return Json(new { id, message = "Количество товара уменьшено на 1" });
         }
 
-        public IActionResult RemoveFromCart(int Id)
+        public IActionResult RemoveFromCart(int id)
         {
-            _CartService.RemoveFromCart(Id);
-            return RedirectToAction("Details");
+            _CartService.RemoveFromCart(id);
+            return Json(new { id, message = "Товар удален из корзины" });
         }
 
         public IActionResult RemoveAll()
@@ -48,10 +51,10 @@ namespace MyWebStore.Controllers
             return RedirectToAction("Details");
         }
 
-        public IActionResult AddToCart(int Id, string ReturnUrl)
+        public IActionResult AddToCart(int id)
         {
-            _CartService.AddToCart(Id);
-            return Redirect(ReturnUrl);
+            _CartService.AddToCart(id);
+            return Json( new { id, message = "Товар добавлен в корзинну"}) ;
         }
 
         [HttpPost, ValidateAntiForgeryToken]
