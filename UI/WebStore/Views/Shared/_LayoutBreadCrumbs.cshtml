@@ -18,7 +18,7 @@
     var id = 0;
     switch (type)
     {
-        case BreadCrumbType.None:break;
+        case BreadCrumbType.None: break;
         case BreadCrumbType.Section:
             id = int.Parse(Context.Request.Query["SectionId"].ToString());
             break;
@@ -39,6 +39,11 @@
     }
 }
 
-@await Component.InvokeAsync("BreadCrumbs", new { type, id, from_type})
+@await Component.InvokeAsync("BreadCrumbs", new { type, id, from_type })
 
 @RenderBody()
+
+@section Scripts
+    {
+    @RenderSection("Scripts", false);
+}

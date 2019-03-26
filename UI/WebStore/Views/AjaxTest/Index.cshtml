@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Ненавязчивый Ajax...</h2>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h3>От сервера...</h3>
+        <a href="#" data-ajax="true"
+           data-ajax-url="@Url.Action("GetTestView", "AjaxTest")"
+           data-ajax-update="#panel"
+           data-ajax-loading="#spinner">
+            Get time
+        </a>
+        <span id="spinner" style="display: none;"><i class="fa fa-spinner fa-spin"></i></span>
+        <div id="panel"></div>
+    </div>
+</div>
+@section Scripts
+{ 
+    <script src="~/jquery/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+}
+

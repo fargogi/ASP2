@@ -25,6 +25,30 @@
       "provider": "unpkg",
       "library": "bootstrap@3.3.7",
       "destination": "wwwroot/bootstrap"
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery-ajax-unobtrusive@3.2.6",
+      "destination": "wwwroot/jquery/jquery-ajax-unobtrusive/",
+      "files": [
+        "dist/jquery.unobtrusive-ajax.min.js",
+        "dist/jquery.unobtrusive-ajax.js"
+      ]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/jquery/jquery-validation-unobtrusive/",
+      "files": [
+        "jquery.validate.unobtrusive.min.js"
+      ]
+    },
+    {
+      "library": "jquery-validate@1.19.0",
+      "destination": "wwwroot/jquery/jquery-validate/"
+    },
+    {
+      "library": "jquery-loading-overlay@2.1.6",
+      "destination": "wwwroot/jquery/jquery-loading-overlay/"
     }
   ]
 }

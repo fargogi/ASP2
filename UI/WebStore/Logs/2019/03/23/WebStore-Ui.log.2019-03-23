@@ -403,3 +403,52 @@ System.InvalidOperationException: The partial view 'Partal/_OrderPartial' was no
 
 2019-03-23 20:25:25,855 [1] ?     - Запуск приложения!!!
 
+2019-03-23 20:41:02,259 [1] ?     - Запуск приложения!!!
+
+2019-03-23 20:49:07,017 [1] ?     - Запуск приложения!!!
+
+2019-03-23 20:53:20,896 [1] ?     - Запуск приложения!!!
+
+2019-03-23 20:53:40,724 [15] ?     - The partial view 'Partal/_OrderPartial' was not found. The following locations were searched:
+/Views/Cart/Partal/_OrderPartial.cshtml
+/Views/Shared/Partal/_OrderPartial.cshtml
+/Pages/Shared/Partal/_OrderPartial.cshtml
+
+System.InvalidOperationException: The partial view 'Partal/_OrderPartial' was not found. The following locations were searched:
+/Views/Cart/Partal/_OrderPartial.cshtml
+/Views/Shared/Partal/_OrderPartial.cshtml
+/Pages/Shared/Partal/_OrderPartial.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCore.Views_Cart_Details.ExecuteAsync() in C:\Users\111\Code\ASP2\WebStore\UI\WebStore\Views\Cart\Details.cshtml:line 64
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at WebStore.Services.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\111\Code\ASP2\WebStore\Services\WebStore.Services\Middleware\ErrorHandlingMiddleware.cs:line 23
+2019-03-23 20:54:31,757 [1] ?     - Запуск приложения!!!
+
+2019-03-23 21:02:45,850 [1] ?     - Запуск приложения!!!
+
+2019-03-23 21:11:33,593 [1] ?     - Запуск приложения!!!
+
+2019-03-23 21:14:54,210 [1] ?     - Запуск приложения!!!
+
+2019-03-23 21:16:10,522 [12] ?     - Попытка входа пользователя Administrator в систему провалена
+
+2019-03-23 21:16:26,164 [17] ?     - Попытка входа пользователя Administrator в систему провалена
+
