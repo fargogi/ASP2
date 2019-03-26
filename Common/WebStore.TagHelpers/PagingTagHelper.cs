@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using MyWebStore.DomainNew.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace WebStore.TagHelpers
@@ -21,7 +22,7 @@ namespace WebStore.TagHelpers
 
         public string PageAction { get; set; }
 
-        [HtmlAttributeName(DictionaryAttributePrefix ="page-url-")]
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
 
         public PagingTagHelper(IUrlHelperFactory urlHelperFactory)
@@ -41,7 +42,7 @@ namespace WebStore.TagHelpers
             }
 
             output.Content.AppendHtml(ul);
-           
+
 
 
             base.Process(context, output);
@@ -53,11 +54,20 @@ namespace WebStore.TagHelpers
             var a = new TagBuilder("a");
 
             if (pageNumber == PageViewModel.PageNumber)
+            {
+                li.MergeAttribute("data-page", PageViewModel.PageNumber.ToString());
                 li.AddCssClass("active");
+            }
+
             else
             {
                 PageUrlValues["page"] = pageNumber;
-                a.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
+                a.Attributes["href"] = "#";
+
+                foreach (var page_url_value in PageUrlValues.Where(v=>v.Value != null))
+                {
+                    a.MergeAttribute($"data-{page_url_value.Key}", page_url_value.Value.ToString());
+                }
             }
 
             a.InnerHtml.AppendHtml(pageNumber.ToString());
